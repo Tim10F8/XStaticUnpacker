@@ -463,7 +463,7 @@ XBinary::ARCHIVERECORD XNSIS::infoCurrent(UNPACK_STATE *pState, PDSTRUCT *pPdStr
             }
 
             result.mapProperties[FPART_PROP_UNCOMPRESSEDSIZE] = entry.nUncompressedSize;
-            result.mapProperties[FPART_PROP_HANDLEMETHOD1] = entry.compressMethod;
+            result.mapProperties[FPART_PROP_HANDLEMETHOD] = entry.compressMethod;
         }
     }
 
@@ -484,10 +484,10 @@ XBinary::ARCHIVERECORD XNSIS::infoCurrent(UNPACK_STATE *pState, PDSTRUCT *pPdStr
     if (!pContext->bIsSolid) {
         qint32 nCurrentIndex = (qint32)pState->nCurrentIndex;
         if (nCurrentIndex >= 0 && nCurrentIndex < pContext->listEntries.size()) {
-            result.mapProperties[FPART_PROP_HANDLEMETHOD1] = pContext->listEntries.at(nCurrentIndex).compressMethod;
+            result.mapProperties[FPART_PROP_HANDLEMETHOD] = pContext->listEntries.at(nCurrentIndex).compressMethod;
         }
     } else {
-        result.mapProperties[FPART_PROP_HANDLEMETHOD1] = pContext->compressMethod;
+        result.mapProperties[FPART_PROP_HANDLEMETHOD] = pContext->compressMethod;
     }
 
     return result;
